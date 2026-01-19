@@ -1,145 +1,167 @@
-Kickdrum Creature — Concept & Control Notes
-1. Concept (Short Description)
+# Kickdrum
 
-Kickdrum is a sound creature living inside the EvoLab environment.
-Its behavior is driven by the global EvoLab states (dawn, day, dusk, night, danger) and by an internal system of personal encounters.
+**Kickdrum** (*EvoLab Sound Creature – AUD722*) is a generative sound entity developed in **SuperCollider** for the **EvoLab multichannel sound installation framework**.  
+The system combines rhythmic sample-based playback with a continuous, noise-driven texture to form an autonomous sonic agent capable of responding to both external environmental states and internally generated events.
 
-The creature has two sonic layers:
+The project investigates how sound can function as a medium for expressing **movement**, **emotional state**, and **perceptual experience** within a shared generative environment.
 
-Body — a rhythmic kick-based sound representing physical movement.
+---
 
-Soul — a breathy noise texture representing emotional and environmental response.
+## Overview
 
-While EvoLab controls the global time and danger states, the creature autonomously generates internal events (encounters with people, places, food, and stories), which temporarily modify its sound and emotional state.
+Kickdrum operates within EvoLab as an **independent sound creature**.  
+Its behavior emerges from the interaction of two distinct but interdependent control layers:
 
-2. EvoLab States → Behavioral Meaning
-EvoLab State	Interpretation
-dawn	Waking up, sensitivity, curiosity
-day	Social activity, movement, energy
-dusk	Reflection, slowing down
-night	Solitude, inner thoughts
-danger	Overstimulation, fear, urgency
+- **Global environmental states** transmitted by the EvoLab system  
+- **Internal encounter events** generated autonomously by the creature  
 
-Each EvoLab state biases which internal encounters are more likely to occur.
+While EvoLab establishes the global temporal and structural framework of the installation, Kickdrum maintains its own internal decision-making processes, allowing for continuous sonic evolution over extended durations.
 
-3. Internal Encounter Types
+---
 
-The creature experiences four types of encounters:
+## Objectives
 
-people → stranger, friend, crowd
+The primary objectives of the Kickdrum project are to:
 
-walking → cityStreet, forest, lake, sea
+- Investigate **autonomous sound behavior** in a multichannel installation context  
+- Translate **environmental conditions** and **affective states** into sonic parameters  
+- Demonstrate **event-driven sound synthesis and control** using SuperCollider  
+- Explore the balance between **external system control** and **local generative autonomy**  
 
-eating → comfort, bitter
+The project emphasizes a hybrid model in which global constraints coexist with internally driven sonic agency.
 
-movie → scary, funny, neutral, awe, sad
+---
 
-Encounters temporarily alter rhythm density, tone brightness, envelope shapes, and noise texture.
+## Conceptual Framework
 
-4. Randomizer Logic (Percentages per EvoLab State)
-Dawn
+Kickdrum is conceptually framed as a **sonic creature** navigating an environment and reacting emotionally to perceived encounters.
 
-walking — 40%
+Its sound identity is structured around two primary layers:
 
-people — 25%
+### Body Layer
 
-eating — 20%
+- Rhythmic playback based on a kick-drum sample  
+- Represents physical presence, locomotion, and corporeal activity  
+- Rhythm density, amplitude, and temporal behavior are influenced by EvoLab states  
 
-movie — 15%
+### Soul Layer
 
-Bias: forest/lake walks, strangers, comfort food, neutral/awe movies
+- Continuous breath-like noise texture processed through filtering and modulation  
+- Represents internal states such as emotion, memory, and perception  
+- Temporarily reshaped through encounter-driven parameter changes  
 
-Day
+The interaction between these layers produces a dynamically evolving sonic behavior that reflects both movement and affect.
 
-people — 35%
+---
 
-walking — 30%
+## EvoLab Global States
 
-movie — 20%
+EvoLab communicates a set of predefined global states to Kickdrum, influencing its overall behavioral tendencies.
 
-eating — 15%
+| State  | Description |
+|------|-------------|
+| dawn | Awakening, sensitivity, exploratory behavior |
+| day | Social activity, increased movement and energy |
+| dusk | Reflection, deceleration |
+| night | Solitude, inward focus |
+| danger | Overstimulation, urgency, heightened tension |
 
-Bias: friends & crowds, city streets, funny/awe movies
+Each state affects rhythmic density, dynamic intensity, and the probability of internal events.
 
-Dusk
+---
 
-walking — 35%
+## Internal Encounter System
 
-movie — 30%
+In addition to global states, Kickdrum generates **internal encounters** that introduce short-term modifications to its sonic output.
 
-people — 20%
+### Encounter Categories
 
-eating — 15%
+#### People
+- `stranger`
+- `friend`
+- `crowd`
 
-Bias: sea/lake walks, sad/neutral movies, strangers
+#### Walking (Spatial Contexts)
+- `cityStreet`
+- `forest`
+- `lake`
+- `sea`
 
-Night
+#### Eating
+- `comfort`
+- `bitter`
 
-movie — 40%
+#### Movie (Narrative / Emotional Stimuli)
+- `scary`
+- `funny`
+- `neutral`
+- `awe`
+- `sad`
 
-walking — 25%
+Encounters influence envelope characteristics, filtering, rhythmic behavior, spatial movement, and the spectral qualities of the noise layer.
 
-eating — 20%
+---
 
-people — 15%
+## Event Distribution Model
 
-Bias: scary/sad movies, slow sea walks, comfort food
+Internal encounters are probabilistically selected based on the current EvoLab global state.
 
-Danger
+### Dawn
+- walking — 40%
+- people — 25%
+- eating — 20%
+- movie — 15%
 
-people — 45%
+### Day
+- people — 35%
+- walking — 30%
+- movie — 20%
+- eating — 15%
 
-walking — 35%
+### Dusk
+- walking — 35%
+- movie — 30%
+- people — 20%
+- eating — 15%
 
-movie — 15%
+### Night
+- movie — 40%
+- walking — 25%
+- eating — 20%
+- people — 15%
 
-eating — 5%
+### Danger
+- people — 45%
+- walking — 35%
+- movie — 15%
+- eating — 5%
 
-Bias: crowds & strangers, city streets, scary movies
+This distribution model allows the creature’s internal behavior to remain contextually coherent with the broader installation environment.
 
-5. Auto-Event System
+---
 
-The creature includes an auto-event engine:
+## Auto-Event System
 
-When ON, encounters are triggered automatically.
+Kickdrum includes an **automatic event system** responsible for triggering internal encounters.
 
-Frequency depends on EvoLab state:
+- Auto-events are **enabled by default**
+- Event frequency is modulated by the active EvoLab state
+- Auto-events operate as an additional behavioral layer rather than replacing global control
+- The system may be manually enabled or disabled
 
-Faster during day and danger
+---
 
-Slower during night
+## Audio Configuration
 
-Auto-events do not replace day/night behavior — they overlay it.
 
-Auto-events can be manually enabled or disabled.
+### Required Audio File
 
-6. Available Commands (User Control)
-EvoLab-triggered states
-Kickdrum.default.dawn;
-Kickdrum.default.day;
-Kickdrum.default.dusk;
-Kickdrum.default.night;
-Kickdrum.default.danger;
+- `kickdrum.wav`
 
-Auto-event control
-Kickdrum.default.autoOn;
-Kickdrum.default.autoOff;
+### Audio Specifications
 
-Random encounters (manual)
-Kickdrum.default.people;
-Kickdrum.default.walking;
-Kickdrum.default.eating;
-Kickdrum.default.movie;
+- Mono (single channel)
+- WAV format
+- Lowercase filename
+All audio resources must be placed in the following directory:
 
-Detailed encounter control
-Kickdrum.default.encounter(\people, \crowd);
-Kickdrum.default.encounter(\walking, \sea);
-Kickdrum.default.encounter(\movie, \scary);
-Kickdrum.default.encounter(\eating, \comfort);
-
-Stop all activity
-Kickdrum.default.stop;
-
-7. Summary (One Sentence)
-
-Kickdrum is a reactive sound creature whose rhythmic body and breathy soul evolve through autonomous encounters shaped by the global states of the EvoLab environment.
