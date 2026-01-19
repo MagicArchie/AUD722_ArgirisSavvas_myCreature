@@ -172,3 +172,18 @@ The automatic encounter system may be enabled or disabled manually using the fol
 ```supercollider
 Kickdrum.default.autoOn;
 Kickdrum.default.autoOff;
+```
+
+---
+
+### Manual Encounter Triggers
+
+Encounter categories may be triggered manually, bypassing the automatic encounter-selection mechanism:
+
+```supercollider
+Kickdrum.default.people;
+Kickdrum.default.walking;
+Kickdrum.default.eating;
+Kickdrum.default.movie;
+```
+
