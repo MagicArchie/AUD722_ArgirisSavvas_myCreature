@@ -165,6 +165,8 @@ Kickdrum includes an **automatic event system** responsible for triggering inter
 - Lowercase filename
 All audio resources must be placed in the following directory:
 
+---
+
 ## Control Interface
 
 
