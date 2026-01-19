@@ -165,3 +165,10 @@ Kickdrum includes an **automatic event system** responsible for triggering inter
 - Lowercase filename
 All audio resources must be placed in the following directory:
 
+### Auto-Event Control
+
+The automatic encounter system may be enabled or disabled manually using the following commands:
+
+```supercollider
+Kickdrum.default.autoOn;
+Kickdrum.default.autoOff;
