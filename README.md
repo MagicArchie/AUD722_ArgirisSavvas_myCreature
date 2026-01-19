@@ -165,6 +165,9 @@ Kickdrum includes an **automatic event system** responsible for triggering inter
 - Lowercase filename
 All audio resources must be placed in the following directory:
 
+## Control Interface
+
+
 ### Auto-Event Control
 
 The automatic encounter system may be enabled or disabled manually using the following commands:
@@ -173,8 +176,6 @@ The automatic encounter system may be enabled or disabled manually using the fol
 Kickdrum.default.autoOn;
 Kickdrum.default.autoOff;
 ```
-
----
 
 ### Manual Encounter Triggers
 
@@ -187,3 +188,28 @@ Kickdrum.default.eating;
 Kickdrum.default.movie;
 ```
 
+### Explicit Encounter Invocation
+
+Specific encounters can be triggered directly by explicitly defining both the encounter category and the encounter type:
+
+```supercollider
+Kickdrum.default.encounter(\people, \crowd);
+Kickdrum.default.encounter(\walking, \sea);
+Kickdrum.default.encounter(\movie, \scary);
+Kickdrum.default.encounter(\eating, \comfort);
+```
+
+### Termination
+
+All active processes and sound generation within the Kickdrum system can be halted using the following command:
+
+```supercollider
+Kickdrum.default.stop;
+```
+
+---
+
+## Conclusion
+
+Kickdrum functions as a **reactive generative sound agent** that integrates structured environmental input with autonomous internal processes.
+Through the interaction of rhythmic and textural sound layers, the system demonstrates how sonic behavior can be employed to model **emotion**, **movement**, and **situated interaction** within a multichannel installation context.
